@@ -6,7 +6,7 @@ export default function App(props) {
 	// 	const [item, updateItem] = useState(Data);
 	const apiKey = '324ce7ec9b1841a38126e152fb31bc45';
 	// let inputValue = '';
-	let viewNum = 20;
+	let viewNum = 1;
 
 	const [query, updateQuery] = useState({
 		baseURL: 'https://api.spoonacular.com/food/products/search?query=',
@@ -29,10 +29,10 @@ export default function App(props) {
 					console.error(error);
 				} finally {
 					updateQuery({
-						baseURL: 'https://api.spoonacular.com/food/products/search?query=',
+						baseURL: 'https://api.spoonacular.com/food/products/search?',
 						option: '',
 						number: '&number=',
-						inputNum: viewNum,
+						inputNum: '',
 						apiKey: '&apiKey=' + apiKey,
 						searchURL: ''
 					});
@@ -41,17 +41,17 @@ export default function App(props) {
 		};
 	}, [query]);
 
-	const handleChange = evt => {
+	const handleChange = event => {
 		updateQuery({
 			...query,
 			...{
-				[evt.target.id]: evt.target.value
+				[event.target.id]: event.target.value
 			}
 		});
 	};
 
-	const handleSubmit = evt => {
-		evt.preventDefault();
+	const handleSubmit = event => {
+		event.preventDefault();
 		updateQuery({
 			...query,
 			searchURL:
@@ -64,14 +64,14 @@ export default function App(props) {
 	};
 
 	return (
-		<div className="column">
+		<div className="Pagre-wrapper">
 			<h1>The Groceries App</h1>
 
 			<form onSubmit={handleSubmit}>
 				{/* <input type="text" className="grocery-input" /> */}
-				<label htmlFor="title"> Search</label>
+				<label htmlFor="option"> Search</label>
 				<input
-					id="title"
+					id="option"
 					type="text"
 					value={query.option}
 					onChange={handleChange}
@@ -85,14 +85,11 @@ export default function App(props) {
 						<option value="to-buy">To Buy</option>
 					</select>
 				</div> */}
+				<div className={'Page'}>
+					{Object.keys(product).length ? <Form product={product} /> : ''}
+				</div>
 			</form>
-			<div className={'Page'}>
-				{Object.keys(product).length ? (
-					<Form key={product.products.id} product={product} />
-				) : (
-					''
-				)}
-			</div>
+
 			{/* <div className={'container'}>
 				{products.map(groceryItem => {
 					return (
