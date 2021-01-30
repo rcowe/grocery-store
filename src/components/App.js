@@ -17,14 +17,14 @@ export default function App(props) {
 		searchURL: ''
 	});
 
-	const [product, updateProduct] = useState({});
+	const [product, updateProduct] = useState([]);
 	useEffect(() => {
-		async () => {
+		(async () => {
 			if (query.searchURL) {
 				try {
 					const response = await fetch(query.searchURL);
 					const data = await response.json();
-					await updateProduct(data);
+					await updateProduct(data.products);
 				} catch (error) {
 					console.error(error);
 				} finally {
@@ -38,7 +38,7 @@ export default function App(props) {
 					});
 				}
 			}
-		};
+		})();
 	}, [query]);
 
 	const handleChange = event => {
@@ -86,7 +86,7 @@ export default function App(props) {
 					</select>
 				</div> */}
 				<div className={'Page'}>
-					{Object.keys(product).length ? <Form product={product} /> : ''}
+					{product.length ? <Form product={product} /> : ''}
 				</div>
 			</form>
 
