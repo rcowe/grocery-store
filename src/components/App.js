@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import Form from './Form';
+import SelectDrop from './SelectDrop';
 // import Data from '../data';
 
 export default function App(props) {
 	// 	const [item, updateItem] = useState(Data);
 	const apiKey = '324ce7ec9b1841a38126e152fb31bc45';
 	// let inputValue = '';
-	let viewNum = 1;
+	let viewNum = 10;
 
 	const [query, updateQuery] = useState({
 		baseURL: 'https://api.spoonacular.com/food/products/search?query=',
@@ -77,29 +78,11 @@ export default function App(props) {
 					onChange={handleChange}
 				/>
 				<input type="submit" value="Find Product" />
-
-				{/* <div className={'selection'}>
-					<select name="items" className={'item-filter'}>
-						<option value={query.inputNum(10)}>See 10 Items</option>
-						<option value="purchased">Purchased</option>
-						<option value="to-buy">To Buy</option>
-					</select>
-				</div> */}
 				<div className={'Page'}>
 					{product.length ? <Form product={product} /> : ''}
 				</div>
 			</form>
-
-			{/* <div className={'container'}>
-				{products.map(groceryItem => {
-					return (
-						<Form
-							key={`${groceryItem.item}-${groceryItem.brand}`}
-							groceryItem={groceryItem}
-						/>
-					);
-				})}
-			</div> */}
+			<SelectDrop />
 		</div>
 	);
 }
