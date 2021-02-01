@@ -7,13 +7,11 @@ export default function App(props) {
 	// 	const [item, updateItem] = useState(Data);
 	const apiKey = '324ce7ec9b1841a38126e152fb31bc45';
 	// let inputValue = '';
-	let viewNum = 10;
 
 	const [query, updateQuery] = useState({
 		baseURL: 'https://api.spoonacular.com/food/products/search?query=',
 		option: '',
-		number: '&number=',
-		inputNum: viewNum,
+		number: '&number=10',
 		apiKey: '&apiKey=' + apiKey,
 		searchURL: ''
 	});
@@ -32,8 +30,7 @@ export default function App(props) {
 					updateQuery({
 						baseURL: 'https://api.spoonacular.com/food/products/search?',
 						option: '',
-						number: '&number=',
-						inputNum: '',
+						number: '&number=10',
 						apiKey: '&apiKey=' + apiKey,
 						searchURL: ''
 					});
@@ -55,12 +52,7 @@ export default function App(props) {
 		event.preventDefault();
 		updateQuery({
 			...query,
-			searchURL:
-				query.baseURL +
-				query.option +
-				query.number +
-				query.inputNum +
-				query.apiKey
+			searchURL: query.baseURL + query.option + query.number + query.apiKey
 		});
 	};
 
@@ -79,10 +71,11 @@ export default function App(props) {
 				/>
 				<input type="submit" value="Find Product" />
 				<div className={'Page'}>
+					{}
 					{product.length ? <Form product={product} /> : ''}
 				</div>
 			</form>
-			<SelectDrop />
+			{/* <SelectDrop /> */}
 		</div>
 	);
 }
