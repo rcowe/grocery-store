@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Form from './Form';
-import SelectDrop from './SelectDrop';
+// import Form from './Form';
+import SelectAdd from './SelectAdd';
 // import Data from '../data';
 
 export default function App(props) {
@@ -56,6 +56,18 @@ export default function App(props) {
 		});
 	};
 
+	const addProduct = event => {
+		event.preventDefault();
+		updateProduct([...product, newProduct]);
+		updateQuery({
+			baseURL: 'https://api.spoonacular.com/food/products/search?',
+			option: '',
+			number: '&number=10',
+			apiKey: '&apiKey=' + apiKey,
+			searchURL: ''
+		});
+	};
+
 	return (
 		<div className="Pagre-wrapper">
 			<h1>The Groceries App</h1>
@@ -70,11 +82,27 @@ export default function App(props) {
 					onChange={handleChange}
 				/>
 				<input type="submit" value="Find Product" />
-				<div className={'Page'}>
-					{}
-					{product.length ? <Form product={product} /> : ''}
-				</div>
 			</form>
+			<div className={'Page'}>
+				{product.map(product => {
+					return (
+						<SelectAdd
+							key={`${product.id}`}
+							product={product}
+							updateProduct={updateProduct}
+							addProduct={addProduct}
+						/>
+					);
+				})}
+				{/* <Form
+					product={product}
+					handleChange={handleChange}
+					handleSubmit={handleSubmit}
+					addProduct={addProduct}
+				/> */}
+				{/* {product.length ? <Form product={product} /> : ''} */}
+			</div>
+
 			{/* <SelectDrop /> */}
 		</div>
 	);
