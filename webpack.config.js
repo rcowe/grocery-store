@@ -4,7 +4,6 @@ const WebpackMd5Hash = require('webpack-md5-hash');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
-
 module.exports = env => {
 	return {
 		entry: {
@@ -30,6 +29,25 @@ module.exports = env => {
 						'css-loader',
 						'sass-loader',
 						'postcss-loader'
+					]
+				},
+				{
+					test: /\.(png|jpeg|gif)$/i,
+					use: [
+						{
+							loader: 'file-loader'
+						}
+					]
+				},
+				{
+					test: /\.(png|jpg|gif)$/i,
+					use: [
+						{
+							loader: 'url-loader',
+							options: {
+								limit: 8192
+							}
+						}
 					]
 				}
 			]

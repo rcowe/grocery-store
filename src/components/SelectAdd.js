@@ -10,11 +10,6 @@ export default function SelectDrop({ product, addProduct, updateProduct }) {
 					Add Item
 				</button>
 			</div>
-			<div className="grocery-div">
-				<div className="item-from-search">
-					<ul className="grocery-list"></ul>
-				</div>
-			</div>
 		</div>
 	);
 }

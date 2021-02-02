@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
-// import Form from './Form';
 import SelectAdd from './SelectAdd';
-// import Data from '../data';
+// import MainImg from '../images/tomatoes-shop-unsplash.png';
 
 export default function App(props) {
+	// function img1() {
+	// 	return <img src={MainImg} alt="Img1" />;
+	// }
+
 	// 	const [item, updateItem] = useState(Data);
 	const apiKey = '324ce7ec9b1841a38126e152fb31bc45';
 	// let inputValue = '';
@@ -69,21 +72,23 @@ export default function App(props) {
 	};
 
 	return (
-		<div className="Pagre-wrapper">
-			<h1>The Groceries App</h1>
-
-			<form onSubmit={handleSubmit}>
-				{/* <input type="text" className="grocery-input" /> */}
-				<label htmlFor="option"> Search</label>
-				<input
-					id="option"
-					type="text"
-					value={query.option}
-					onChange={handleChange}
-				/>
-				<input type="submit" value="Find Product" />
-			</form>
-			<div className={'Page'}>
+		<div className="container">
+			<header className="header-of-page">
+				<div className="page-title">
+					<h1>The Groceries App</h1>
+				</div>
+				<form onSubmit={handleSubmit} className="search-bar">
+					{/* <input type="text" className="grocery-input" /> */}
+					<input
+						id="option"
+						type="text"
+						value={query.option}
+						onChange={handleChange}
+					/>
+					<input type="submit" value="Find Product" />
+				</form>
+			</header>
+			<div className="list-results">
 				{product.map(product => {
 					return (
 						<SelectAdd
@@ -94,16 +99,25 @@ export default function App(props) {
 						/>
 					);
 				})}
-				{/* <Form
-					product={product}
-					handleChange={handleChange}
-					handleSubmit={handleSubmit}
-					addProduct={addProduct}
-				/> */}
-				{/* {product.length ? <Form product={product} /> : ''} */}
 			</div>
-
-			{/* <SelectDrop /> */}
+			<div className="page-image">
+				<div className="image-holder">
+					<p>Image Goes Here</p>
+					<p>Image Goes Here</p>
+					<p>Image Goes Here</p>
+				</div>
+			</div>
+			<div className="grocery-display-items">
+				<div className="grocery-card-1">
+					<h2>Card 1</h2>
+				</div>
+				<div className="grocery-card-2">
+					<h2>Card 2</h2>
+				</div>
+				<div className="grocery-card-3">
+					<h2>Card 3</h2>
+				</div>
+			</div>
 		</div>
 	);
 }
