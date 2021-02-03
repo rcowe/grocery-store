@@ -1,38 +1,38 @@
+require('dotenv').config;
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 8000;
 const mongoose = require('mongoose');
 
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/fruits_api';
+const MONGODB_URI =
+	process.env.MONGODB_URI || 'mongodb://localhost:27017/fruits_api';
 const db = mongoose.connection;
 
 mongoose.connect(MONGODB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
+	useNewUrlParser: true,
+	useUnifiedTopology: true
 });
 db.on('open', () => {
-    console.log('Mongo is Connected');
+	console.log('Mongo is Connected');
 });
 /* Middleware */
 app.use(express.json());
-if (process.env.NODE_ENV !== 'development'){
-  app.use(express.static('public'))
+if (process.env.NODE_ENV !== 'development') {
+	app.use(express.static('public'));
 }
 
 /* Controller Goes Here Remove the tes*/
-app.get('/test', (req, res)=>{
+app.get('/test', (req, res) => {
 	res.status(200).json({
 		website: 'My Website',
 		info: 'Not that much'
-	})
-})
+	});
+});
 /* Controller Ends here */
 //LISTENER
 app.listen(PORT, () => {
-    console.log(`API Listening on port ${PORT}`);
+	console.log(`API Listening on port ${PORT}`);
 });
-
-
 
 /* Vanilla Node Server
 const http = require('http'); // The node http module allow you to create servers
