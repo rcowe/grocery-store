@@ -31,7 +31,7 @@ export default function App(props) {
 					console.error(error);
 				} finally {
 					updateQuery({
-						baseURL: 'https://api.spoonacular.com/food/products/search?',
+						baseURL: 'https://api.spoonacular.com/food/products/search?query=',
 						option: '',
 						number: '&number=10',
 						apiKey: '&apiKey=' + apiKey,
@@ -63,7 +63,7 @@ export default function App(props) {
 		event.preventDefault();
 		updateProduct([...product, newProduct]);
 		updateQuery({
-			baseURL: 'https://api.spoonacular.com/food/products/search?',
+			baseURL: 'https://api.spoonacular.com/food/products/search?query=',
 			option: '',
 			number: '&number=10',
 			apiKey: '&apiKey=' + apiKey,
