@@ -1,10 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700");
 @import "reset";
 
-
-
-
-
 body {
   line-height: 1;
   background: whitesmoke;
@@ -48,7 +44,7 @@ h1 {
   grid-template-columns: 20% 30% 30% 20%;
   grid-template-rows: 150px 400px 300px;
   font-size: 24px;
-  border: 1px solid red;
+  // border: 1px solid red;
   align-items: stretch;
   justify-content: space-evenly;
 }
@@ -72,35 +68,35 @@ h1 {
       align-items: right;
     }
 }
-.page-image {
-  background-color: lightgray;
-  grid-column: 1/5;
-  grid-row: 2;
-  padding: 10px;
-    .image-holder {
-      position: sticky;
-      padding: 10px 10px 10px 10px;
-      background: lightslategray;
-    }
-}
+// .page-image {
+//   background-color: lightgray;
+//   grid-column: 1/5;
+//   grid-row: 2;
+//   padding: 10px;
+//     .image-holder {
+//       position: sticky;
+//       padding: 10px 10px 10px 10px;
+//       background: lightslategray;
+//     }
+// }
 
-.grocery-display-items {
-  display: inline-grid;
+// .grocery-display-items {
+//   display: inline-grid;
 
-}
-.grocery-card-1{
-  background-color: lightblue;
-  grid-row: 1;
-  grid-column: 1 / 5;
-}
-.grocery-card-2{
-  background-color: lightblue;
-  grid-row: 1;
-  grid-column: 2 / 4;
-}
+// }
+// .grocery-card-1{
+//   background-color: lightblue;
+//   grid-row: 1;
+//   grid-column: 1 / 5;
+// }
+// .grocery-card-2{
+//   background-color: lightblue;
+//   grid-row: 1;
+//   grid-column: 2 / 4;
+// }
 
-.grocery-card-3{
-  background-color: lightblue;
-  grid-column: 3 / 4;
-  grid-row: 1;
-}
+// .grocery-card-3{
+//   background-color: lightblue;
+//   grid-column: 3 / 4;
+//   grid-row: 1;
+// }

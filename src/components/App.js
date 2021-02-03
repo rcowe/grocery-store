@@ -100,7 +100,7 @@ export default function App(props) {
 					);
 				})}
 			</div>
-			<div className="page-image">
+			{/* <div className="page-image">
 				<div className="image-holder">
 					<p>Image Goes Here</p>
 					<p>Image Goes Here</p>
@@ -117,7 +117,7 @@ export default function App(props) {
 				<div className="grocery-card-3">
 					<h2>Card 3</h2>
 				</div>
-			</div>
+			</div> */}
 		</div>
 	);
 }
